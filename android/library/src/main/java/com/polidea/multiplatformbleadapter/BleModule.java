@@ -1180,8 +1180,6 @@ public class BleModule implements BleAdapter {
                     if (!discoveredDevices.containsKey(deviceId)) {
                         discoveredDevices.put(deviceId, rxBleDeviceToDeviceMapper.map(scanResult.getBleDevice(), null));
                     }
-                    System.out.println('edgar');
-                    System.out.println(deviceId);
                     onEventCallback.onEvent(rxScanResultToScanResultMapper.map(scanResult));
                 }, throwable -> onErrorCallback.onError(errorConverter.toError(throwable)));
     }
