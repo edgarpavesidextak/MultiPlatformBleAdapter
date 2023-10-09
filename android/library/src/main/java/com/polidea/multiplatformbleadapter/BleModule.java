@@ -1165,6 +1165,7 @@ public class BleModule implements BleAdapter {
         ScanSettings scanSettings = new ScanSettings.Builder()
                 .setScanMode(scanMode)
                 .setCallbackType(callbackType)
+                .setLegacy(false)
                 .build();
 
         int length = uuids == null ? 0 : uuids.length;

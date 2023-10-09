@@ -7,9 +7,6 @@ import com.polidea.multiplatformbleadapter.utils.Constants;
 public class RxScanResultToScanResultMapper {
 
     public ScanResult map(com.polidea.rxandroidble2.scan.ScanResult rxScanResult) {
-        System.out.println('edgar');
-        System.out.println(rxScanResult.getBleDevice().getMacAddress());
-
         return new ScanResult(
                 rxScanResult.getBleDevice().getMacAddress(),
                 rxScanResult.getBleDevice().getName(),
