@@ -83,6 +83,7 @@ public class ErrorConverter {
             BleDisconnectedException bleDisconnectedException = (BleDisconnectedException) throwable;
             BleError bleError = new BleError(BleErrorCode.DeviceDisconnected, throwable.getMessage(), bleDisconnectedException.state);
             bleError.deviceID = bleDisconnectedException.bluetoothDeviceAddress;
+            System.out.println('edgar e brenda 2');
             return bleError;
         }
 
