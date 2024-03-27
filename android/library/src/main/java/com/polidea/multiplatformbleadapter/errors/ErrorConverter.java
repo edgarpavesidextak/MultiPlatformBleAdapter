@@ -22,6 +22,7 @@ import com.polidea.rxandroidble2.exceptions.BleServiceNotFoundException;
 
 import java.util.UUID;
 import java.util.concurrent.TimeoutException;
+import java.io.*;
 
 public class ErrorConverter {
 
