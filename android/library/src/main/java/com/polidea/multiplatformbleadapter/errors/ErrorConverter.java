@@ -86,7 +86,7 @@ public class ErrorConverter {
             bleError.deviceID = bleDisconnectedException.bluetoothDeviceAddress;
             System.out.println("edgar e brenda 2");
             System.out.println(bleDisconnectedException.bluetoothDeviceAddress);
-            return null;
+            return BleErrorUtils.cannotMonitorCharacteristic("", null, null, "");
         }
 
         if (throwable instanceof BleScanException) {
