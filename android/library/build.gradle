@@ -2,13 +2,14 @@ apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'maven-publish'
 
-group='com.polidea.multiplatformbleadapter'
-version='2.0'
+group = 'com.polidea.multiplatformbleadapter'
+version = '2.0'
 
 buildscript {
     repositories {
         google()
         mavenCentral()
+        maven { url "https://jitpack.io" }
     }
     dependencies {
         classpath "com.android.tools.build:gradle:8.0.2"
@@ -54,6 +55,12 @@ android {
     }
     kotlinOptions {
         jvmTarget = '1.8'
+    }
+}
+
+rootProject.allprojects {
+    repositories {
+        maven { url "https://jitpack.io" }
     }
 }
 
