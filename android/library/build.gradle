@@ -67,7 +67,7 @@ rootProject.allprojects {
 
 dependencies {
     api 'io.reactivex.rxjava3:rxjava:3.1.8'
-    implementation "com.github.edgarpavesidextak:RxAndroidBle:fdf23dea57"
+    implementation "com.github.edgarpavesidextak:RxAndroidBle:6f35d74056"
 }
 
 tasks.withType(PublishToMavenRepository).configureEach { it.enabled = false }
