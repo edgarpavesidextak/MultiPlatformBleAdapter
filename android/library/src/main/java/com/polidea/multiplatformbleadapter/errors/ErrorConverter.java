@@ -79,7 +79,7 @@ public class ErrorConverter {
         }
 
         if (throwable instanceof BleDisconnectedException) {
-            return null;
+            return new BleError(BleErrorCode.UnknownError,"teste",0);
         }
 
         if (throwable instanceof BleScanException) {
