@@ -79,7 +79,7 @@ public class ErrorConverter {
         }
 
         if (throwable instanceof BleDisconnectedException) {
-            toError(throwable);
+            return null;
         }
 
         if (throwable instanceof BleScanException) {
