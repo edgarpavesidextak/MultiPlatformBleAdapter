@@ -67,26 +67,5 @@ rootProject.allprojects {
 
 dependencies {
     api 'io.reactivex.rxjava3:rxjava:3.1.8'
-    implementation "com.github.edgarpavesidextak:RxAndroidBle:75f98bdbb4"
-}
-
-tasks.withType(PublishToMavenRepository).configureEach { it.enabled = false }
-
-publishing {
-    publications {
-        release(MavenPublication) {
-            groupId 'com.polidea.multiplatformbleadapter'
-            artifactId 'library'
-            version '2.0'
-
-
-            pom {
-                name = "Multiplatform Ble Adapter"
-            }
-
-            afterEvaluate {
-                from components.release
-            }
-        }
-    }
+    implementation 'com.github.edgarpavesidextak:RxAndroidBle:75f98bdbb4'
 }
