@@ -79,7 +79,10 @@ public class ErrorConverter {
         }
 
         if (throwable instanceof BleDisconnectedException) {
-            return new BleError(BleErrorCode.UnknownError,"teste",0);
+            BleDisconnectedException bleDisconnectedException = (BleDisconnectedException) throwable;
+            BleError bleError = new BleError(BleErrorCode.DeviceDisconnected, throwable.getMessage(), bleDisconnectedException.state);
+            bleError.deviceID = bleDisconnectedException.bluetoothDeviceAddress;
+            return bleError;
         }
 
         if (throwable instanceof BleScanException) {
