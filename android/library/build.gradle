@@ -57,7 +57,7 @@ android {
 }
 
 dependencies {
-    implementation("com.github.edgarpavesidextak:RxAndroidBle:acbc4bc08d")
+    implementation("com.github.edgarpavesidextak:RxAndroidBle:0e02bf48b2")
     api "com.polidea.rxandroidble2:rxandroidble:1.19.1"
 }
 
