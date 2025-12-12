@@ -21,7 +21,7 @@ repositories {
 }
 
 android {
-    compileSdk 33
+    compileSdk 36
     namespace = 'com.polidea.multiplatformbleadapter'
     publishing {
         singleVariant("release") {
@@ -31,7 +31,6 @@ android {
 
     defaultConfig {
         minSdkVersion 23
-        targetSdkVersion 33
         versionCode 2
         versionName "2.0"
         aarMetadata {
@@ -58,8 +57,8 @@ android {
 }
 
 dependencies {
-    api 'io.reactivex.rxjava2:rxjava:2.2.17'
-    api "com.polidea.rxandroidble2:rxandroidble:1.18.1"
+    implementation("com.github.edgarpavesidextak:RxAndroidBle:acbc4bc08d")
+    api "com.polidea.rxandroidble2:rxandroidble:1.19.1"
 }
 
 tasks.withType(PublishToMavenRepository).configureEach { it.enabled = false }
