@@ -1,2 +1,29 @@
+pluginManagement {
+    repositories {
+        google()
+        mavenCentral()
+        gradlePluginPortal()
+    }
+}
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.PREFER_SETTINGS)
+    repositories {
+        google()
+        mavenCentral()
+        maven { url 'https://jitpack.io' }
+    }
+}
+
+rootProject.name = 'MultiPlatformBleAdapter'
+
 include ':library'
-//include ':samplebleapp'
+include ':rxandroidble'
+include ':rxandroidble3'
+include ':mockrxandroidble'
+include ':mockrxandroidble3'
+include ':dagger-compiler-shadow'
+include ':dagger-library-shadow'
+
+// --- REMOVA OU COMENTE ESTAS LINHAS ABAIXO ---
+// include ':sample' 
+// include ':sample-kotlin'

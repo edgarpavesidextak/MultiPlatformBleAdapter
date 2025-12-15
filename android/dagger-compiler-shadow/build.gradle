@@ -1,0 +1,38 @@
+buildscript {
+    repositories {
+        gradlePluginPortal()
+        mavenCentral()
+        google()
+    }
+    dependencies {
+        classpath "com.github.johnrengelman.shadow:com.github.johnrengelman.shadow.gradle.plugin:8.1.1"
+    }
+}
+
+apply plugin: 'com.github.johnrengelman.shadow'
+apply plugin: 'java'
+
+import com.github.jengelman.gradle.plugins.shadow.transformers.ServiceFileTransformer
+
+repositories {
+    mavenCentral()
+    google()
+}
+
+dependencies {
+    implementation 'com.google.dagger:dagger-compiler:2.48'
+}
+
+shadowJar {
+    archiveClassifier.set('')
+    transform(ServiceFileTransformer)
+
+    // --- Renomeação dos pacotes ---
+    relocate 'dagger', 'bleshadow.dagger'
+    relocate 'javax.inject', 'bleshadow.javax.inject'
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
+}

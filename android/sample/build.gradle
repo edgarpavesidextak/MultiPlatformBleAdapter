@@ -1,0 +1,48 @@
+plugins {
+    id 'com.android.application' // Note que aqui é 'application', não 'library'
+    id 'kotlin-android'
+}
+
+android {
+    namespace 'com.polidea.multiplatformbleadapter.sample'
+    compileSdk 34
+
+    defaultConfig {
+        applicationId "com.polidea.multiplatformbleadapter.sample"
+        minSdkVersion 23
+        targetSdk 34
+        versionCode 1
+        versionName "1.0"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    // --- A CORREÇÃO ESTÁ AQUI ---
+    // Substituímos as variáveis externas por valores diretos
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+dependencies {
+    // O app de exemplo depende da biblioteca que estamos consertando
+    implementation project(':library')
+
+    // Dependências básicas de UI para o exemplo rodar
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'com.google.android.material:material:1.11.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+
+    // RxJava (caso o exemplo use diretamente)
+    implementation 'io.reactivex.rxjava2:rxjava:2.2.17'
+    implementation 'io.reactivex.rxjava2:rxandroid:2.1.1'
+}

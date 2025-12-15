@@ -1,0 +1,47 @@
+plugins {
+    id 'com.android.library'
+    id 'kotlin-android'
+}
+
+android {
+    namespace 'com.polidea.rxandroidble3'
+    compileSdk 34
+
+    defaultConfig {
+        minSdkVersion 23
+        targetSdk 34
+    }
+
+    // Configurações de compilação Java 8
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+
+    lint {
+        abortOnError = false
+        checkReleaseBuilds = false
+    }
+}
+
+dependencies {
+    implementation 'androidx.annotation:annotation:1.8.0'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:1.8.10"
+
+    // --- RxJava 3 (Essencial para este módulo) ---
+    api 'io.reactivex.rxjava3:rxjava:3.1.8'
+    api 'io.reactivex.rxjava3:rxandroid:3.0.2'
+
+    // RxRelay (Versão 3)
+    implementation 'com.jakewharton.rxrelay3:rxrelay:3.0.1'
+
+    // --- Dagger Padrão (Para funcionar com o código corrigido) ---
+    implementation 'com.google.dagger:dagger:2.48'
+    annotationProcessor 'com.google.dagger:dagger-compiler:2.48'
+
+    // Injeção
+    implementation 'javax.inject:javax.inject:1'
+}

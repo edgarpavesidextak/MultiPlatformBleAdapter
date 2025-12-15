@@ -1,0 +1,50 @@
+buildscript {
+    repositories {
+        gradlePluginPortal()
+        mavenCentral()
+        google()
+    }
+    dependencies {
+        classpath "com.github.johnrengelman.shadow:com.github.johnrengelman.shadow.gradle.plugin:8.1.1"
+    }
+}
+
+apply plugin: 'com.github.johnrengelman.shadow'
+apply plugin: 'java'
+
+import com.github.jengelman.gradle.plugins.shadow.transformers.ServiceFileTransformer
+
+repositories {
+    mavenCentral()
+    google()
+}
+
+dependencies {
+    implementation 'com.google.dagger:dagger:2.48'
+    implementation 'javax.inject:javax.inject:1'
+}
+
+shadowJar {
+    // Isso faz o Jar gerado substituir o padrão (importante para o Android ver)
+    archiveClassifier.set('')
+
+    transform(ServiceFileTransformer)
+
+    // --- O SEGREDO ESTÁ AQUI: Renomeia os pacotes para o código encontrar ---
+    relocate 'dagger', 'bleshadow.dagger'
+    relocate 'javax.inject', 'bleshadow.javax.inject'
+}
+
+// Força a criação do ShadowJar quando este projeto for solicitado
+configurations {
+    apiElements.outgoing.artifacts.clear()
+    apiElements.outgoing.artifact(shadowJar)
+
+    runtimeElements.outgoing.artifacts.clear()
+    runtimeElements.outgoing.artifact(shadowJar)
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
+}
