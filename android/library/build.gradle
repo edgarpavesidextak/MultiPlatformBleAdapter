@@ -58,7 +58,7 @@ android {
 
 dependencies {
     api 'io.reactivex.rxjava2:rxjava:2.2.17'
-    implementation("com.github.edgarpavesidextak:RxAndroidBle:0e02bf48b2")
+    api 'com.github.edgarpavesidextak:RxAndroidBle:0e02bf48b2'
 }
 
 tasks.withType(PublishToMavenRepository).configureEach { it.enabled = false }
